@@ -17,6 +17,8 @@ public class EurekaClientOneApplication {
 	@Autowired
 	private FirstFeignClient ffc;
 
+	// create / save via FeignClient
+
 	@GetMapping(path = "/")
 	public String getHomepage() {
 		return ffc.getPosts();
