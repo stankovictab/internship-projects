@@ -18,6 +18,13 @@
 		<spring-cloud.version>2021.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
+		<!-- Imported dependency for FeignClient -->
+		<dependency>
+            <groupId>archimedes</groupId>
+            <artifactId>campaign-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
