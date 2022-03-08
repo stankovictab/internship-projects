@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "campaign-service")
 public interface CampaignServiceFeignClient {
 
-	@GetMapping(value = "/")
+	@GetMapping(value = "/campaign")
 	public String home();
 }
