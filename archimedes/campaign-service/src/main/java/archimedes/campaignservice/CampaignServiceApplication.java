@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-@ComponentScan(basePackages = "archimedes")
+@ComponentScan(basePackages = "com.archimedes")
 public class CampaignServiceApplication {
 
 	public static void main(String[] args) {
