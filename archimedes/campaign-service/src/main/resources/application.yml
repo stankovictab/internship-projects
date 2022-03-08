@@ -1,6 +1,17 @@
 spring:
   application:
     name: campaign-service # NAME IN EUREKA DASHBOARD
+  jpa:
+    properties:
+      hibernate:ime
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mylocaldb
+    username: mylocaluser
+    password: password
 server:
   port: 0 # RANDOM PORT
 eureka:
