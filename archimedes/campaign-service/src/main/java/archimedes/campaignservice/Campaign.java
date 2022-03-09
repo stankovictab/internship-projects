@@ -3,12 +3,15 @@ package archimedes.campaignservice;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 public class Campaign {
-    @Id
-    private Long id;
+	// TODO: Lombok nacin da se u konstruktoru automatski inkrementira id?
+	@Id
+	private int id;
 
-    private String campaignName;
+	private final String campaignName;
 }

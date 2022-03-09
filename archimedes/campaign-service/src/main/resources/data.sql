@@ -1,1 +1,1 @@
--- insert into campaign values ();
+insert into campaign (id, campaign_name) values (1, 'sample');

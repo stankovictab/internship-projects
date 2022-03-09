@@ -1,7 +1,11 @@
 spring:
   application:
     name: campaign-service # NAME IN EUREKA DASHBOARD
+  sql:
+    init:
+      mode: always # Enables data.sql
   jpa:
+    defer-datasource-initialization: true # Enables data.sql
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
