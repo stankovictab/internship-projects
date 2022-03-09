@@ -1,1 +1,3 @@
-insert into campaign (id, campaign_name) values (1, 'sample');
+-- select * exists because data.sql can't be empty
+select *
+from campaign;

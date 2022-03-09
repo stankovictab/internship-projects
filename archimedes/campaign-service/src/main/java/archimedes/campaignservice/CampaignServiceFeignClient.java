@@ -1,7 +1,10 @@
 package archimedes.campaignservice;
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -15,5 +18,11 @@ public interface CampaignServiceFeignClient {
 	public String home();
 
 	@PostMapping(value = "/create")
-	public boolean create(@RequestBody String name);
+	public String create(@RequestBody String name);
+
+	@GetMapping(value = "/get/{id}")
+	public Campaign getOne(@PathVariable int id);
+
+	@GetMapping(value = "/getAll")
+	public List<Campaign> getAll();
 }

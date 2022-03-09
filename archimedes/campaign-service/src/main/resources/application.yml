@@ -13,8 +13,8 @@ spring:
       ddl-auto: create
     show-sql: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/mylocaldb
-    username: mylocaluser
+    url: jdbc:postgresql://localhost:5433/mydockerdb
+    username: mydockeruser
     password: password
 server:
   port: 0 # RANDOM PORT
