@@ -1,6 +1,6 @@
 spring:
   application:
-    name: campaign-service # NAME IN EUREKA DASHBOARD
+    name: campaign-service # Name in Eureka Dashboard
   sql:
     init:
       mode: always # Enables data.sql
@@ -17,7 +17,7 @@ spring:
     username: mydockeruser
     password: password
 server:
-  port: 0 # RANDOM PORT
+  port: 0 # Random port
 eureka:
   client:
     serviceUrl:

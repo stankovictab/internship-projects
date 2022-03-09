@@ -1,4 +1,4 @@
-package archimedes.surveyservice;
+package archimedes.campaignservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = "archimedes")
 @ComponentScan(basePackages = "archimedes")
-public class SurveyServiceApplication {
+public class CampaignServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SurveyServiceApplication.class, args);
+		SpringApplication.run(CampaignServiceApplication.class, args);
 	}
 
 }

@@ -1,8 +1,8 @@
 spring:
   application:
-    name: survey-service # NAME IN EUREKA DASHBOARD
+    name: survey-service # Name in Eureka Dashboard
 server:
-  port: 0 # RANDOM PORT
+  port: 0 # Random port
 eureka:
   client:
     serviceUrl:
