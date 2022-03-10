@@ -1,16 +1,17 @@
 package archimedes.campaignservice;
 
 import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
+// @NoArgsConstructor
 @AllArgsConstructor
 public class Campaign {
 	@Id
@@ -26,6 +27,9 @@ public class Campaign {
 	private Boolean is_active;
 
 	private LocalDate timestamp;
+
+	public Campaign() {
+	}
 
 	public Campaign(String name, LocalDate start_date, LocalDate end_date, Boolean is_active, LocalDate timestamp) {
 		this.name = name;

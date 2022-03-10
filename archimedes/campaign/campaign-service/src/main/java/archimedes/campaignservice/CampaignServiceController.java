@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.RequiredArgsConstructor;
+import archimedes.campaignclient.CampaignDTO;
+import archimedes.campaignclient.CampaignServiceFeignClient;
 
 @RestController
-@RequiredArgsConstructor
+// @RequiredArgsConstructor
 public class CampaignServiceController implements CampaignServiceFeignClient {
 
 	// private final SurveyServiceFeignClient ssfc;
@@ -21,6 +22,11 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 
 	@Autowired
 	CampaignServiceRepository repo;
+
+	// private final CampaignMapper mapper;
+
+	@Autowired
+	CampaignMapper mapper;
 
 	@GetMapping(value = "/campaign")
 	@Override
@@ -40,13 +46,13 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 
 	@GetMapping(value = "/getOne/{id}")
 	@Override
-	public Campaign getOne(@PathVariable int id) {
-		return repo.findById(id).get();
+	public CampaignDTO getOne(@PathVariable int id) {
+		return mapper.mapToDto(repo.findById(id).get());
 	}
 
 	@GetMapping(value = "/getAll")
 	@Override
-	public List<Campaign> getAll() {
-		return repo.findAll();
+	public List<CampaignDTO> getAll() {
+		return mapper.mapAllToDto(repo.findAll());
 	}
 }
