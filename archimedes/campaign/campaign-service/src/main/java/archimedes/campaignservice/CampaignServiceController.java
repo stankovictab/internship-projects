@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import archimedes.campaignclient.CampaignDTO;
 import archimedes.campaignclient.CampaignServiceFeignClient;
+import archimedes.surveyclient.SurveyDTO;
 
 @RestController
 // @RequiredArgsConstructor
@@ -37,9 +38,12 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 
 	@PostMapping(value = "/create")
 	@Override
-	public String create(@RequestBody String name) {
+	public String create(@RequestBody SurveyDTO surveyDTO) {
 		// TODO: Remove hardcoded values
-		Campaign c = new Campaign(name, LocalDate.now(), LocalDate.now().plusDays(1), true, LocalDate.now());
+		Campaign c = new Campaign(surveyDTO.getTitle(), surveyDTO.getDescription(), LocalDate.now(),
+				LocalDate.now().plusDays(1),
+				true,
+				LocalDate.now());
 		repo.save(c);
 		return "Campaign created successfully!";
 	}

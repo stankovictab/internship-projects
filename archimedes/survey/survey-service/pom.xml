@@ -43,6 +43,11 @@
             <artifactId>campaign-client</artifactId>
             <version>${project.version}</version>
         </dependency>
+		<dependency>
+            <groupId>archimedes</groupId>
+            <artifactId>survey-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
 		<!-- DB -->
 		<!-- None -->

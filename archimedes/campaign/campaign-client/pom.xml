@@ -32,6 +32,11 @@
 			<optional>true</optional>
 			<version>1.18.22</version>
 		</dependency>
+		<dependency>
+            <groupId>archimedes</groupId>
+            <artifactId>survey-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 	</dependencies>
 
 </project> 

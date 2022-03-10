@@ -18,7 +18,9 @@ public class Campaign {
 	@GeneratedValue // Auto incrementing the id
 	private int id;
 
-	private String name;
+	private String title;
+
+	private String description;
 
 	private LocalDate start_date;
 
@@ -31,8 +33,10 @@ public class Campaign {
 	public Campaign() {
 	}
 
-	public Campaign(String name, LocalDate start_date, LocalDate end_date, Boolean is_active, LocalDate timestamp) {
-		this.name = name;
+	public Campaign(String title, String description, LocalDate start_date, LocalDate end_date, Boolean is_active,
+			LocalDate timestamp) {
+		this.title = title;
+		this.description = description;
 		this.start_date = start_date;
 		this.end_date = end_date;
 		this.is_active = is_active;
