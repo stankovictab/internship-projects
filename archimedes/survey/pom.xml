@@ -8,6 +8,11 @@
     <artifactId>survey</artifactId>
     <packaging>pom</packaging>
 
+	<properties>
+		<java.version>11</java.version>
+		<spring-cloud.version>2021.0.1</spring-cloud.version>
+	</properties>
+
     <modules>
         <module>survey-client</module>
         <module>survey-service</module>

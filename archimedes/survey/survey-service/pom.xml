@@ -2,29 +2,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+
 	<groupId>archimedes</groupId>
 	<artifactId>survey-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>survey-service</name>
 	<description>Archimedes Survey Service</description>
+	
 	<properties>
-		<java.version>11</java.version>
-		<spring-cloud.version>2021.0.1</spring-cloud.version>
+		<!-- <org.mapstruct.version>1.4.2.Final</org.mapstruct.version> -->
 	</properties>
-	<dependencies>
-		<!-- Imported dependency for FeignClient -->
-		<dependency>
-            <groupId>archimedes</groupId>
-            <artifactId>campaign-service</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
+	<!-- This parent can't be campaign, as that means campaign needs to have spring-boot-starter-parent as the parent, 
+	which means -client will be a spring boot project, and it can't be that because then it can't be imported as a dependency (it'll require the exec thing) -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.4</version>
+		<!-- To skip the local search and directly search the Maven repositories, we need to explicitly set the relativePath to an empty value -->
+		<relativePath></relativePath>
+	</parent>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -33,10 +32,20 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
+		<!-- Feign -->
 		<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>archimedes</groupId>
+            <artifactId>campaign-client</artifactId>
+            <version>${project.version}</version>
         </dependency>
+
+		<!-- DB -->
+		<!-- None -->
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -49,12 +58,13 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
+				<version>2021.0.1</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

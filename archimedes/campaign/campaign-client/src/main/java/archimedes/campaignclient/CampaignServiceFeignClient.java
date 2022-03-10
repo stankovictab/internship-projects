@@ -21,7 +21,7 @@ public interface CampaignServiceFeignClient {
 	String create(@RequestBody String name);
 
 	@GetMapping(value = "/get/{id}")
-	CampaignDTO getOne(@PathVariable int id);
+	CampaignDTO getOne(@PathVariable("id") int id);
 
 	@GetMapping(value = "/getAll")
 	List<CampaignDTO> getAll();

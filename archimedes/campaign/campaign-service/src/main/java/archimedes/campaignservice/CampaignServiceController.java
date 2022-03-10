@@ -46,7 +46,7 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 
 	@GetMapping(value = "/getOne/{id}")
 	@Override
-	public CampaignDTO getOne(@PathVariable int id) {
+	public CampaignDTO getOne(@PathVariable("id") int id) {
 		return mapper.mapToDto(repo.findById(id).get());
 	}
 
