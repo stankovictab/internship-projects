@@ -13,18 +13,13 @@
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 	</properties>
 
-	<!-- Moved to campaign -->
-	<!-- <properties>
-		<java.version>11</java.version>
-		<spring-cloud.version>2021.0.1</spring-cloud.version>
-	</properties> -->
-
-	<!-- The parent can't be campaign, as that means campaign needs to have spring boot as the parent, which means -client will be a spring boot project, and it can't be that because then it can't be imported as a dependency -->
+	<!-- This parent can't be campaign, as that means campaign needs to have spring-boot-starter-parent as the parent, 
+	which means -client will be a spring boot project, and it can't be that because then it can't be imported as a dependency (it'll require the exec thing) -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.4</version>
-		<!-- To skip the local file search and directly search the parent POM in Maven repositories, we need to explicitly set the relativePath to an empty value -->
+		<!-- To skip the local search and directly search the Maven repositories, we need to explicitly set the relativePath to an empty value -->
 		<relativePath></relativePath>
 	</parent>
 
@@ -95,8 +90,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<!-- TODO: Don't need this anymore -->
-					<!-- Added so that the project creates an app jar, and a jar for importing as a dependency -->
+					<!-- As we've seperated the project into -service and -client, this isn't necessary -->
 					<!-- <classifier>exec</classifier> -->
 					<excludes>
 						<exclude>
