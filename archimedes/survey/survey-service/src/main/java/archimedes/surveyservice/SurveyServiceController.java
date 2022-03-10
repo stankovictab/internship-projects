@@ -19,7 +19,6 @@ public class SurveyServiceController /* implements SurveyServiceFeignClient */ {
 	public String create(@PathVariable("title") String title, @PathVariable("description") String description) {
 		SurveyDTO surveyDTO = new SurveyDTO(title, description);
 		String test = csfc.create(surveyDTO);
-		System.out.println("Got back: " + test);
-		return "Hello from survey-service's controller...";
+		return "Got back: " + test;
 	}
 }
