@@ -29,11 +29,10 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 	@Autowired
 	CampaignMapper mapper;
 
-	@GetMapping(value = "/campaign")
+	@GetMapping(value = "/actuator/info")
 	@Override
 	public String home() {
-		System.out.println("Executed FeignClient!");
-		return "Hello from campaign-service's controller!!!";
+		return "Hello from campaign-service's controller!";
 	}
 
 	@PostMapping(value = "/create")

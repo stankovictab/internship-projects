@@ -16,7 +16,7 @@ import archimedes.surveyclient.SurveyDTO;
 @FeignClient(value = "campaign-service")
 public interface CampaignServiceFeignClient {
 
-	@GetMapping(value = "/campaign")
+	@GetMapping(value = "/actuator/info")
 	String home();
 
 	@PostMapping(value = "/create")
