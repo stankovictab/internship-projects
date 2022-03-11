@@ -5,7 +5,7 @@
 			"server": "localhost",
 			"port": 5432,
 			"driver": "PostgreSQL",
-			"name": "newdocker",
+			"name": "dockerdb",
 			"database": "thedockerdb",
 			"username": "thedockeruser",
 			"password": "password"

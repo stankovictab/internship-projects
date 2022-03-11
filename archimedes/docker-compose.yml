@@ -1,14 +1,8 @@
 version: '3.9'
 
+# depends-on hierarchy: db -> eureka-server -> survey-service & campaign-service
+
 services:
-  eureka-server:
-    build: ./eureka-server/
-    ports:
-      - 8761:8761
-  # survey-service:
-  #   build: ./survey/survey-service/
-  # campaign-service:
-  #   build: ./campaign/campaign-service/
   db:
     image: postgres:alpine
     restart: always
@@ -18,3 +12,19 @@ services:
       - POSTGRES_USER=thedockeruser
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=thedockerdb
+  eureka-server:
+    build: ./eureka-server/
+    ports:
+      - 8761:8761
+    depends_on:
+      - db
+  survey-service:
+    build: ./survey/survey-service/
+    # No ports, as they're generated at random
+    depends_on:
+      - eureka-server
+  campaign-service:
+    build: ./campaign/campaign-service/
+    # No ports, as they're generated at random
+    depends_on:
+      - eureka-server

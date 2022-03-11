@@ -13,14 +13,14 @@ spring:
       ddl-auto: create
     show-sql: true
   datasource:
-    url: jdbc:postgresql://localhost:5433/mydockerdb
-    username: mydockeruser
+    url: jdbc:postgresql://db:5432/thedockerdb 	# jdbc:postgresql://db:5432/thedockerdb ? umesto localhost naziv servisa?
+    username: thedockeruser
     password: password
 server:
   port: 0 # Random port
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
   instance:
     preferIpAddress: true
