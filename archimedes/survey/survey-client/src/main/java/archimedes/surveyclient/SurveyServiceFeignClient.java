@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface SurveyServiceFeignClient {
 
 	@GetMapping(value = "/actuator/info")
-	@Override
 	public String home();
 
 	@PostMapping(value = "/create/{title}/{description}")
-	// @Override
 	public String create(@PathVariable("title") String title, @PathVariable("description") String description);
 }
