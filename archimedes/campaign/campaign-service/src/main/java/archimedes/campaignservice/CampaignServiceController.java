@@ -43,6 +43,8 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 				LocalDate.now().plusDays(1),
 				true,
 				LocalDate.now());
+		// TODO: Find a way to autoincrement correctly
+		// c.setId(repo.findAll().size() + 1);
 		repo.save(c);
 		return "Campaign created successfully!";
 	}

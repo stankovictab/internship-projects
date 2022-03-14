@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +16,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class Campaign {
 	@Id
-	@GeneratedValue // Auto incrementing the id
+	@GeneratedValue(strategy = GenerationType.AUTO) // Auto incrementing the id
+	// @GeneratedValue
 	private int id;
 
 	private String title;
