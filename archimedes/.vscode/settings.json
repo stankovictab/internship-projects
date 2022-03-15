@@ -10,5 +10,6 @@
 			"username": "thedockeruser",
 			"password": "password"
 		}
-	]
+	],
+	"java.configuration.updateBuildConfiguration": "automatic"
 }

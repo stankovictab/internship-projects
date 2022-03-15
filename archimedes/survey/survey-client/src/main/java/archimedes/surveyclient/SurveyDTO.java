@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SurveyDTO {
-	String title;
+	private String title;
 
-	String description;
+	private String description;
 }

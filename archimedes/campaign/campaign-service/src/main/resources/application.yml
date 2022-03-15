@@ -4,17 +4,14 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/changelog-master.xml
-  # This can be erased
   sql:
     init:
-      mode: never # always enables data.sql, but never is required for Liquibase (?)
+      mode: never # always enables data.sql, but never is required for Liquibase
   jpa:
-    # This can be erased
-    defer-datasource-initialization: false # true enables data.sql, but false is required for Liquibase (?)
+    defer-datasource-initialization: false # true enables data.sql, but false is required for Liquibase
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-    # This can be erased, as the default value is validate
     hibernate:
       ddl-auto: validate # create would override tables, validate won't
     show-sql: true

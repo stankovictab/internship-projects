@@ -14,6 +14,7 @@ public interface SurveyServiceFeignClient {
 	@GetMapping(value = "/actuator/info")
 	public String home();
 
+	// TODO: RequestBody instead of 2 PathVariables
 	@PostMapping(value = "/create/{title}/{description}")
 	public String create(@PathVariable("title") String title, @PathVariable("description") String description);
 }

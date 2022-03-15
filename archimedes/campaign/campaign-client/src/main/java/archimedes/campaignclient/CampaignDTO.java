@@ -17,19 +17,19 @@ public class CampaignDTO {
 
 	private String description;
 
-	private LocalDate start_date;
+	private LocalDate startDate;
 
-	private LocalDate end_date;
+	private LocalDate endDate;
 
-	private Boolean is_active;
+	private Boolean isActive;
 
-	public CampaignDTO(String title, String description, LocalDate start_date, LocalDate end_date, Boolean is_active,
+	public CampaignDTO(String title, String description, LocalDate startDate, LocalDate endDate, Boolean isActive,
 			LocalDate timestamp) {
 		this.title = title;
 		this.description = description;
-		this.start_date = start_date;
-		this.end_date = end_date;
-		this.is_active = is_active;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.isActive = isActive;
 	}
 
 }

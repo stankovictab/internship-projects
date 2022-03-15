@@ -18,6 +18,6 @@
 	</changeSet> -->
 
 	<changeSet id="first" author="me">
-		<sqlFile path="sql.sql" relativeToChangelogFile="true"/>
+		<sqlFile path="migration.sql" relativeToChangelogFile="true"/>
 	</changeSet>
 </databaseChangeLog>

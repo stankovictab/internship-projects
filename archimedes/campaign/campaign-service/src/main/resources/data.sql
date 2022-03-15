@@ -1,4 +1,0 @@
--- select * exists because data.sql can't be empty
--- select * from campaign;
--- data.sql isn't used anymore, as it's replaced by Liquibase
--- see db/changelog

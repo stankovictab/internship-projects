@@ -8,13 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>survey-service</name>
 	<description>Archimedes Survey Service</description>
-	
-	<properties>
-		<!-- <org.mapstruct.version>1.4.2.Final</org.mapstruct.version> -->
-	</properties>
 
-	<!-- This parent can't be campaign, as that means campaign needs to have spring-boot-starter-parent as the parent, 
-	which means -client will be a spring boot project, and it can't be that because then it can't be imported as a dependency (it'll require the exec thing) -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

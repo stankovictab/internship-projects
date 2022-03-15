@@ -11,10 +11,9 @@
 
 	<properties>
 		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+		<openfeign.version>3.1.1</openfeign.version>
 	</properties>
 
-	<!-- This parent can't be campaign, as that means campaign needs to have spring-boot-starter-parent as the parent, 
-	which means -client will be a spring boot project, and it can't be that because then it can't be imported as a dependency (it'll require the exec thing) -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -37,6 +36,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>${openfeign.version}</version>
 		</dependency>
 		<dependency>
             <groupId>archimedes</groupId>
@@ -109,7 +109,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<!-- MapStruct -->
+			<!-- Lombok & MapStruct Annotation Processors -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -118,6 +118,11 @@
 					<source>1.8</source> <!-- depending on your project -->
 					<target>1.8</target> <!-- depending on your project -->
 					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>

@@ -3,16 +3,24 @@ package archimedes.campaignservice;
 import java.util.List;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import archimedes.campaignclient.CampaignDTO;
+import archimedes.surveyclient.SurveyDTO;
 
 @Mapper(componentModel = "spring")
 public interface CampaignMapper {
 
-	// @Mapping(target = "Campaign", source = "CampaignDTO")
 	public Campaign mapToEntity(CampaignDTO dto);
 
-	public CampaignDTO mapToDto(Campaign entity);
+	// TODO: Remove hardcoded values
+	@Mapping(target = "startDate", expression = "java(java.time.LocalDate.now())")
+	@Mapping(target = "endDate", expression = "java(java.time.LocalDate.now().plusDays(1))")
+	@Mapping(target = "isActive", expression = "java(true)")
+	@Mapping(target = "timestamp", expression = "java(java.time.LocalDate.now())")
+	Campaign mapToEntity(SurveyDTO surveyDTO);
 
-	public List<CampaignDTO> mapAllToDto(List<Campaign> list);
+	CampaignDTO mapToDto(Campaign entity);
+
+	List<CampaignDTO> mapAllToDto(List<Campaign> list);
 }

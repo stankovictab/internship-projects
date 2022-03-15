@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SurveyServiceController implements SurveyServiceFeignClient {
 
-	private final CampaignServiceFeignClient csfc;
+	private final CampaignServiceFeignClient campaignServiceFeignClient;
 
 	@GetMapping(value = "/actuator/info")
 	@Override
@@ -26,7 +26,7 @@ public class SurveyServiceController implements SurveyServiceFeignClient {
 	@Override
 	public String create(@PathVariable("title") String title, @PathVariable("description") String description) {
 		SurveyDTO surveyDTO = new SurveyDTO(title, description);
-		String test = csfc.create(surveyDTO);
+		String test = campaignServiceFeignClient.create(surveyDTO);
 		return "Got back: " + test;
 	}
 }
