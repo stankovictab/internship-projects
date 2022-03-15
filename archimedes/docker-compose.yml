@@ -1,5 +1,6 @@
 version: '3.9'
 
+# To deploy multiple replicas, we'd use deploy: replicas: {number}
 # depends-on hierarchy: db -> eureka-server -> survey-service & campaign-service
 
 services:

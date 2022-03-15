@@ -13,6 +13,8 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+// TODO: Think about renaming to CampaignEntity,
+// and adding @Table(name="campaign")
 public class Campaign {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) // Auto incrementing the id
