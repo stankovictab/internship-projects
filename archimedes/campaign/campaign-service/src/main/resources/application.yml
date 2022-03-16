@@ -1,6 +1,11 @@
 spring:
   application:
-    name: campaign-service # Name in Eureka Dashboard
+    name: campaign-service # Name in Eureka Dashboard and for config-server
+
+  # This setting can't be pushed to the config server, as it falls into an infinite loop searching for the config in itself
+  config:
+    import: configserver:http://172.17.0.1:8888 # TODO: Set docker service name and parametrize this value
+
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/changelog-master.xml
@@ -27,3 +32,6 @@ eureka:
       defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
   instance:
     preferIpAddress: true
+
+# Exposing all Actuator endpoints
+management.endpoints.web.exposure.include: "*"

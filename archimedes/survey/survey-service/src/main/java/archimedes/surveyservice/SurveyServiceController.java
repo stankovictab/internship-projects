@@ -16,6 +16,8 @@ public class SurveyServiceController implements SurveyServiceFeignClient {
 
 	private final CampaignServiceFeignClient campaignServiceFeignClient;
 
+	// This overrides Actuator's info endpoint,
+	// which isn't configured and returns an empty JSON
 	@GetMapping(value = "/actuator/info")
 	@Override
 	public String home() {

@@ -2,7 +2,6 @@ package archimedes.campaignservice;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +20,8 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 	private final CampaignServiceRepository repo;
 	private final CampaignMapper mapper;
 
+	// This overrides Actuator's info endpoint,
+	// which isn't configured and returns an empty JSON
 	@GetMapping(value = "/actuator/info")
 	public String home() {
 		return "Hello from campaign-service's controller!";

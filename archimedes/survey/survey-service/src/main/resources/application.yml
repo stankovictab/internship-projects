@@ -1,6 +1,8 @@
 spring:
   application:
-    name: survey-service # Name in Eureka Dashboard
+    name: survey-service # Name in Eureka Dashboard and for config-server
+#   config:
+#     import: configserver:http://localhost:8888 # TODO: Set docker service name and parametrize this value
 server:
   port: 0 # Random port
 eureka:
@@ -9,3 +11,6 @@ eureka:
       defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
   instance:
     preferIpAddress: true
+
+# Exposing all Actuator endpoints
+management.endpoints.web.exposure.include: "*"
