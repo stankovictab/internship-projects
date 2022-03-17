@@ -11,5 +11,4 @@ public class ArchimedesEurekaServerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ArchimedesEurekaServerApplication.class, args);
 	}
-
 }

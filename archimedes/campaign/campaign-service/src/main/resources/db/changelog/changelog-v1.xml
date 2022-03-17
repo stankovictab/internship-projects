@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<!-- <changeSet id="create-mytable" author="me">
+		<createTable tableName="mytable">
+			<column name="mycol" type="int"/>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="fill-mytable" author="me">
+		<insert tableName="mytable">
+			<column name="mycol" value="33"/>
+		</insert>
+	</changeSet> -->
+
+	<changeSet id="first" author="me">
+		<sqlFile path="migration.sql" relativeToChangelogFile="true"/>
+	</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: campaign-service # Name in Eureka Dashboard and for config-server
+
+  # This setting can't be pushed to the config server, as it falls into an infinite loop searching for the config in itself
+  config:
+    import: configserver:http://172.17.0.1:8888 # TODO: Set docker service name and parametrize this value
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+  sql:
+    init:
+      mode: never # always enables data.sql, but never is required for Liquibase
+  jpa:
+    defer-datasource-initialization: false # true enables data.sql, but false is required for Liquibase
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate # create would override tables, validate won't
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://db:5432/thedockerdb
+    username: thedockeruser
+    password: password
+server:
+  port: 0 # Random port
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+# Exposing all Actuator endpoints
+management.endpoints.web.exposure.include: "*"
