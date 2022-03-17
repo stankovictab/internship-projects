@@ -6,7 +6,7 @@ The main microservices are :
 - `survey` - The frontend of the app, accepting REST requests, and sending info back to `campaign`. It consists of `survey-client` and `survey-service`.
 - `campaign` - The main backend of the app, connected to the database. It consists of `campaign-client` and `campaign-service`.
 - `eureka-server` - The Netflix Eureka service discovery microservice, used to connect all the microservices together.
-- `config-server` - The Spring Cloud Config server, used to deliver configuration files to all Spring microservices.
+- `config-server` - The Spring Cloud Config server, used to deliver configuration files to all Spring microservices [from this repository](https://github.com/stankovictab/archimedes-config).
 - `db` - The PostgreSQL database.
 
 All of these microservices are run inside of their own Docker container, through Docker Compose.
@@ -52,6 +52,11 @@ To run the app, run the following command.
 ```bash
 ./up.sh
 ```
+You can run it with the `skip` argument to skip Maven installation, like so.
+```bash
+./up.sh skip
+```
+
 To shut down the app, run the following command.
 ```bash
 ./down.sh

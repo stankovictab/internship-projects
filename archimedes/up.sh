@@ -1,4 +1,13 @@
-./maveninstall.sh
+if [ "$1" = "skip" ]
+then 
+	printf '\n'
+
+	BLUE="\e[32m"
+	ENDCOLOR="\e[0m"
+	echo -e "${BLUE}Skipping Maven installation.${ENDCOLOR}"
+else 
+	./maveninstall.sh
+fi
 
 printf '\n'
 echo "Starting up the containers, please wait ..."

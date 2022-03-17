@@ -23,11 +23,13 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 	// This overrides Actuator's info endpoint,
 	// which isn't configured and returns an empty JSON
 	@GetMapping(value = "/actuator/info")
+	@Override
 	public String home() {
 		return "Hello from campaign-service's controller!";
 	}
 
 	@PostMapping(value = "/create")
+	@Override
 	public String create(@RequestBody SurveyDTO surveyDTO) {
 		Campaign c = mapper.mapToEntity(surveyDTO);
 		repo.save(c);
@@ -35,11 +37,13 @@ public class CampaignServiceController implements CampaignServiceFeignClient {
 	}
 
 	@GetMapping(value = "/getOne/{id}")
+	@Override
 	public CampaignDTO getOne(@PathVariable("id") int id) {
 		return mapper.mapToDto(repo.findById(id).get());
 	}
 
 	@GetMapping(value = "/getAll")
+	@Override
 	public List<CampaignDTO> getAll() {
 		return mapper.mapAllToDto(repo.findAll());
 	}
