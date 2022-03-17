@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  survey-service:
+    build: ./survey/survey-service/
+    # No ports, as they're generated at random
+    # Deleted depends_on, as there's sleeping in the script
+  campaign-service:
+    build: ./campaign/campaign-service/
+    # No ports, as they're generated at random
+    # Deleted depends_on, as there's sleeping in the script

@@ -6,14 +6,15 @@ The main microservices are :
 - `survey` - The frontend of the app, accepting REST requests, and sending info back to `campaign`. It consists of `survey-client` and `survey-service`.
 - `campaign` - The main backend of the app, connected to the database. It consists of `campaign-client` and `campaign-service`.
 - `eureka-server` - The Netflix Eureka service discovery microservice, used to connect all the microservices together.
+- `config-server` - The Spring Cloud Config server, used to deliver configuration files to all Spring microservices.
 - `db` - The PostgreSQL database.
 
-All of these microservices are run inside of their own Docker container.
+All of these microservices are run inside of their own Docker container, through Docker Compose.
 
 ## Running the app
 
 Make sure you don't have a local instance of the PostgreSQL server running.\
-In case you are, run :
+In case you do, run :
 ```bash
 service postgresql stop
 ```
@@ -47,18 +48,22 @@ Install Maven.
 sudo apt install maven
 ```
 
-Open four terminals, one in `eureka-server`, one in `campaign`, one in `survey`, and one in `archimedes`.\
-In the first three, run the following command to compile the projects and generate `.jar` files.
+To run the app, run the following command.
 ```bash
-mvn clean install -DskipTests
+./up.sh
 ```
-In the fourth, run the following command to run the containers.
+To shut down the app, run the following command.
 ```bash
-docker-compose up --build
+./down.sh
 ```
-This command will generate new Docker images every time, so you can repeat these steps when making changes to the project.
+`up.sh` runs a Maven script to generate `.jar` executable files which will be run inside of Docker containers, \
+and two `docker-compose` commands seperated by a `sleep` command in order to make sure that \
+all containers run without errors, as they depend on one another.
 
-The `survey-service` should initially fail, and then get back up a couple seconds later.
+`down.sh` forcefully shuts down (kills) all the containers, and then forcefully removes them.
+
+The script will create new images from the code every time, \
+so you can easily repeat these steps when making changes to the project.
 
 ## Using the App
 

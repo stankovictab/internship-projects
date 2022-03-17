@@ -1,0 +1,4 @@
+-- select next_val(hibernate_sequence)
+-- drop TABLE databasechangelog;
+-- drop TABLE databasechangeloglock;
+-- drop TABLE campaign;

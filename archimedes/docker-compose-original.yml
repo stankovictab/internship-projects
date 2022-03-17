@@ -19,6 +19,12 @@ services:
       - 8761:8761
     depends_on:
       - db
+  config-server:
+    build: ./config-server/
+    ports:
+      - 8888:8888
+    depends_on:
+      - eureka-server
   survey-service:
     build: ./survey/survey-service/
     # No ports, as they're generated at random
