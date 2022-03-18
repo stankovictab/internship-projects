@@ -7,6 +7,7 @@ The main microservices are :
 - `campaign` - The main backend of the app, connected to the database. It consists of `campaign-client` and `campaign-service`.
 - `eureka-server` - The Netflix Eureka service discovery microservice, used to connect all the microservices together.
 - `config-server` - The Spring Cloud Config server, used to deliver configuration files to all Spring microservices [from this repository](https://github.com/stankovictab/archimedes-config).
+- `gateway-service` - The Gateway used as a layer between the clients and microservices of tha app, the entrypoint into the app.
 - `db` - The PostgreSQL database.
 
 All of these microservices are run inside of their own Docker container, through Docker Compose.
@@ -52,16 +53,19 @@ To run the app, run the following command.
 ```bash
 ./up.sh
 ```
-You can run it with the `skip` argument to skip Maven installation, like so.
+
+Available arguments are `--skipMaven` to skip the Maven installation of `.jar`s,\
+and `--stopPostgres` to automatically launch `service postgresql stop`.\
+You can use both at the same time, like so.
 ```bash
-./up.sh skip
+./up.sh --skipMaven --stopPostgres
 ```
 
 To shut down the app, run the following command.
 ```bash
 ./down.sh
 ```
-`up.sh` runs a Maven script to generate `.jar` executable files which will be run inside of Docker containers, \
+`up.sh` by itself runs a Maven script to generate `.jar` executable files which will be run inside of Docker containers, \
 and two `docker-compose` commands seperated by a `sleep` command in order to make sure that \
 all containers run without errors, as they depend on one another.
 
@@ -73,11 +77,13 @@ so you can easily repeat these steps when making changes to the project.
 ## Using the App
 
 Go to `localhost:8761` to see the Eureka Dashboard.\
-In there you can open the hyperlinks to the two connected services.\
-You can copy their domain and port, and paste them into Postman to generate requests to their endpoints.\
-The main endpoint we're concerned with is `survey-service`'s `/create/{title}/{description}`.\
+In there you can open the hyperlinks to the connected services.\
+The only one we need is the Gateway Service.\
+You can copy it's domain and port (which should be `8889`), and paste it into Postman,\
+or another similar app, to create requests to the endpoints.\
+The main endpoint we're concerned with is `/survey/create/{title}/{description}`.\
 Making a POST request to that URL will generate a new survey campaign,\
 which can be seen in the connected database,
 which is located in `jdbc:postgresql://db:5432/thedockerdb`, \
-and accessible through pgAdmin, or similar client.\
+and accessible through pgAdmin, or a similar client.\
 `db` is the service name, used instead of `localhost`, as we're running the database inside of a Docker container.

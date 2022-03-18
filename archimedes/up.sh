@@ -1,12 +1,9 @@
-# TODO: if "$1" = "--skipMaven" || "$2" = "--skipMaven"
-# TODO: if "$1" = "--stopPostgres" || "$2" = "--stopPostgres"
-
-if [ "$1" = "--stopPostgres" ]
+if [ "$1" = "--stopPostgres" ] || [ "$2" = "--stopPostgres" ]
 then
 	service postgresql stop
 fi
 
-if [ "$1" = "skip" ]
+if [ "$1" = "--skipMaven" ] || [ "$2" = "--skipMaven" ]
 then 
 	printf '\n'
 
