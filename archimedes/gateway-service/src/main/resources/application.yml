@@ -9,11 +9,20 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: ???
-          uri: ???
+          # Patterns for routes are all the same
+          # If a request is sent to /survey/abc, gateway will forward the request to the survey-service, but only tha abc part
+        - id: survey-service # Name of route
+          uri: lb://survey-service # Redirection to the actual microservice
           predicates:
-            - ??
-
+            - Path=/survey/** 
+          filters:
+            - RewritePath=/survey/(?<path>.*), /$\{path} # TODO: ????
+        - id: campaign-service
+          uri: lb://campaign-service
+          predicates:
+            - Path=/campaign/**
+          filters:
+            - RewritePath=/campaign/(?<path>.*), /$\{path}
 server:
   port: 8889
 
