@@ -20,9 +20,8 @@ import lombok.NoArgsConstructor;
 // and adding @Table(name="campaign")
 public class Campaign {
 	@Id
-	// TODO: Auto incrementing the id, should we use AUTO or IDENTITY?
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqGen")
-	@SequenceGenerator(name = "seqGen", sequenceName = "campaign_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen")
+	@SequenceGenerator(name = "seq_gen", sequenceName = "campaign_id_seq", allocationSize = 1)
 	private int id;
 
 	private String title;

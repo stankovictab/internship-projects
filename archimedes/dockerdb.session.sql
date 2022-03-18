@@ -1,4 +1,13 @@
--- select next_val(hibernate_sequence)
 -- drop TABLE databasechangelog;
 -- drop TABLE databasechangeloglock;
 -- drop TABLE campaign;
+--------------------------------------
+-- select next_val(hibernate_sequence)
+-- SELECT c.relname
+-- FROM pg_class c
+-- WHERE c.relkind = 'S';
+-- SELECT last_value
+-- FROM campaign_id_seq;
+-- select * from campaign_id_seq;
+-- select nextval('campaign_id_seq');
+-- select nextval('hibernate_sequence');

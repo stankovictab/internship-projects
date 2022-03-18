@@ -14,7 +14,7 @@ spring:
         - id: survey-service # Name of route
           uri: lb://survey-service # Redirection to the actual microservice
           predicates:
-            - Path=/survey/** 
+            - Path=/survey/** # The path that activates redirection
           filters:
             - RewritePath=/survey/(?<path>.*), /$\{path} # TODO: ????
         - id: campaign-service

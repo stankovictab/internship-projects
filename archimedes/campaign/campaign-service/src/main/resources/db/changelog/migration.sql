@@ -18,11 +18,29 @@ insert into campaign(
 		title
 	)
 VALUES (
-		1,
-		'testDescription',
+		nextval('campaign_id_seq'),
+		'firstDescription',
 		DATE('2022-03-15'),
 		FALSE,
 		DATE('2022-03-14'),
 		DATE('2022-03-14'),
-		'testTitle'
+		'firstTitle'
+	);
+insert into campaign(
+		id,
+		description,
+		end_date,
+		is_active,
+		start_date,
+		timestamp,
+		title
+	)
+VALUES (
+		nextval('campaign_id_seq'),
+		'secondDescription',
+		DATE('2022-03-15'),
+		FALSE,
+		DATE('2022-03-14'),
+		DATE('2022-03-14'),
+		'secondTitle'
 	);
