@@ -6,8 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -17,7 +20,8 @@ import lombok.*;
 // and adding @Table(name="campaign")
 public class Campaign {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO) // Auto incrementing the id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "campaign_id_seq")
+	@SequenceGenerator(name = "campaign_id_seq", sequenceName = "campaign_id_seq", allocationSize = 1)
 	private int id;
 
 	private String title;

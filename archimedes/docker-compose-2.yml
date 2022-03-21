@@ -1,0 +1,15 @@
+version: '3.9'
+
+# Deleted depends_on, as there's sleeping in the script
+
+services:
+  gateway-service:
+    build: ./gateway-service
+    ports:
+      - 8889:8889
+  survey-service:
+    build: ./survey/survey-service/
+    # No ports, as they're generated at random
+  campaign-service:
+    build: ./campaign/campaign-service/
+    # No ports, as they're generated at random

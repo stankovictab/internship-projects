@@ -4,7 +4,7 @@ spring:
 
   # This setting can't be pushed to the config server, as it falls into an infinite loop searching for the config in itself
   config:
-    import: configserver:http://172.17.0.1:8888 # TODO: Set docker service name and parametrize this value
+    import: configserver:http://config-server:8888 
 
   liquibase:
     enabled: true
@@ -33,5 +33,16 @@ eureka:
   instance:
     preferIpAddress: true
 
+# TODO: Uncomment when using Actuator
 # Exposing all Actuator endpoints
-management.endpoints.web.exposure.include: "*"
+# management.endpoints.web.exposure.include: "*"
+
+# TODO: Uncomment when using Actuator
+# FIXME: ?
+# Displayed in /actuator/info
+# info:
+#   app:
+#     name: @project.name@
+#     groupId: @project.groupId@
+#     artifactId: @project.artifactId@
+#     version: @project.version@
